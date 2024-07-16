@@ -13,14 +13,14 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    docker.build("final:${env.BUILD_NUMBER}")
+                    docker.build("final1/build/web:${env.BUILD_NUMBER}")
                 }
             }
         }
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("final:${env.BUILD_NUMBER}").run("-d -p 8090:8080 --name final-container")
+                    docker.image("ysmfinal:${env.BUILD_NUMBER}").run("-d -p 8090:8080 --name final-container")
                 }
             }
   }
