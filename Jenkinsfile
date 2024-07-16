@@ -20,7 +20,7 @@ pipeline {
         stage('Push image to Hub'){
             steps{
                 script{
-                    docker.image("ysmfinal:${env.BUILD_NUMBER}").run("-d -p 8090:8080 --name final-container")
+                    docker.image("final1:${env.BUILD_NUMBER}").run("-d -p 8090:8080 --name final-container")
                 }
             }
   }
