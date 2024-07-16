@@ -17,7 +17,7 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 # WAR dosyasını manuel olarak oluşturuyoruz
-RUN jar cvf HelloWeb.war .
+RUN jar cvf /build/web/HelloWeb.war .
 
 # Oluşturduğumuz WAR dosyasını GlassFish autodeploy dizinine kopyalıyoruz
 RUN cp HelloWeb.war ${GLASSFISH_HOME}/glassfish/domains/domain1/autodeploy/
