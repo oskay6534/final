@@ -13,7 +13,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    docker.build("final1/build/web:${env.BUILD_NUMBER}")
+                    docker.build("final1:${env.BUILD_NUMBER}")
                 }
             }
         }
