@@ -11,13 +11,13 @@ RUN wget http://download.oracle.com/glassfish/4.1.1/release/glassfish-${GLASSFIS
     && rm glassfish-${GLASSFISH_VERSION}.zip
 
 # Proje dosyalarını container'a kopyalıyoruz
-COPY . /usr/src/app
+COPY build/web /usr/src/app
 
 # Proje dizinine gidiyoruz
 WORKDIR /usr/src/app
 
 # WAR dosyasını manuel olarak oluşturuyoruz
-RUN jar cvf /build/web/HelloWeb.war .
+RUN jar cvf HelloWeb.war .
 
 # Oluşturduğumuz WAR dosyasını GlassFish autodeploy dizinine kopyalıyoruz
 RUN cp HelloWeb.war ${GLASSFISH_HOME}/glassfish/domains/domain1/autodeploy/
